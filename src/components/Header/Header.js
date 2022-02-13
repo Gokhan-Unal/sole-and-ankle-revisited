@@ -21,9 +21,9 @@ const Header = () => {
     <header>
       <SuperHeader />
       <MainHeader>
-        <Side>
+        <LogoWrapper>
           <Logo />
-        </Side>
+        </LogoWrapper>
         <DesktopNav>
           <NavLink href="/sale">Sale</NavLink>
           <NavLink href="/new">New&nbsp;Releases</NavLink>
@@ -62,6 +62,11 @@ const MainHeader = styled.div`
   border-bottom: 1px solid ${COLORS.gray[300]};
   @media ${QUERIES.tabletAndSmaller} {
     border-top: 4px solid ${COLORS.gray[900]};
+    justify-content: space-between;
+  }
+  @media ${QUERIES.phoneAndSmaller} {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 `;
 
@@ -74,8 +79,11 @@ const DesktopNav = styled.nav`
   }
 `;
 
-const Side = styled.div`
+const LogoWrapper = styled.div`
   flex: 1;
+  @media ${QUERIES.tabletAndSmaller} {
+    flex: revert;
+  }
 `;
 
 const Filler = styled.div`
@@ -90,6 +98,9 @@ const MobileActions = styled.div`
   @media ${QUERIES.tabletAndSmaller} {
     display: flex;
     align-items: baseline;
+    gap: 32px;
+  }
+  @media ${QUERIES.phoneAndSmaller} {
     gap: 16px;
   }
 `;
