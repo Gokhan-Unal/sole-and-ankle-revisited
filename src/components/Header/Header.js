@@ -31,6 +31,8 @@ const Header = () => {
           <NavLink href="/women">Women</NavLink>
           <NavLink href="/kids">Kids</NavLink>
           <NavLink href="/collections">Collections</NavLink>
+          <NavLink href="/collections">Collections</NavLink>
+          <NavLink href="/collections">Collections</NavLink>
         </DesktopNav>
         <MobileActions>
           <UnstyledButton>
@@ -58,8 +60,30 @@ const MainHeader = styled.div`
   display: flex;
   align-items: baseline;
   padding: 18px 32px;
-  height: 72px;
+  /* height: 72px; */
+  overflow: auto;
   border-bottom: 1px solid ${COLORS.gray[300]};
+  /* width */
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: ${COLORS.primary};
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: ${COLORS.secondary};
+  }
+
   @media ${QUERIES.tabletAndSmaller} {
     border-top: 4px solid ${COLORS.gray[900]};
     justify-content: space-between;
@@ -72,7 +96,7 @@ const MainHeader = styled.div`
 
 const DesktopNav = styled.nav`
   display: flex;
-  gap: 48px;
+  gap: clamp(1rem, 9.2vw - 4.5rem, 3.5rem);
   margin: 0px 48px;
   @media ${QUERIES.tabletAndSmaller} {
     display: none;
